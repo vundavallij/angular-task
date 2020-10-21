@@ -4,7 +4,7 @@ import { OnInit } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 
-export interface PeriodicElement {
+export interface showPayloads {
   customers: any;
   position: number;
   manufacturer: any;
@@ -34,10 +34,10 @@ export interface historyData {
 export class AppComponent implements OnInit {
   title = 'Angular-Task';
   displayedColumns: string[] = ['position', 'customers', 'manufacturer', 'nationality', 'payload_id',
-  'payload_mass_kg', 'payload_mass_lbs', 'payload_type', 'orbit'];
+    'payload_mass_kg', 'payload_mass_lbs', 'payload_type', 'orbit'];
   historyColumns: string[] = ['id', 'details', 'event_date_unix', 'event_date_utc', 'flight_number', 'title'];
-   
-  public dataSource = new MatTableDataSource<PeriodicElement>();
+
+  public dataSource = new MatTableDataSource<showPayloads>();
   public historyData = new MatTableDataSource<historyData>();
   public showTable: boolean = false;
 
@@ -45,13 +45,13 @@ export class AppComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChildren(MatPaginator) paginators = new QueryList<MatPaginator>();
 
-  
+
 
   constructor(readonly dataService: DataserviceService) {
 
   }
   public ngOnInit(): void {
-    this.showData();  
+    this.showData();
   }
 
 
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
 
   public onTabClick($event) {
     console.log('eve', $event);
-    if($event.index === 1) {
+    if ($event.index === 1) {
       this.showHistory();
     }
   }

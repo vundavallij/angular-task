@@ -1,103 +1,104 @@
 <h2>{{title}}</h2>
 <mat-tab-group (selectedTabChange)="onTabClick($event)">
-  <mat-tab label="First"> 
+  <mat-tab label="First">
     <div class="data-container">
-  <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element; let row; let index = index"> {{index + 1}} </td>
-    </ng-container>
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element; let row; let index = index"> {{index + 1}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="customers">
-      <th mat-header-cell *matHeaderCellDef> Customers </th>
-      <td mat-cell *matCellDef="let element"> {{element.customers[0]}} </td>
-    </ng-container>
+        <ng-container matColumnDef="customers">
+          <th mat-header-cell *matHeaderCellDef> Customers </th>
+          <td mat-cell *matCellDef="let element"> {{element.customers[0]}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="manufacturer">
-      <th mat-header-cell *matHeaderCellDef> Manufacturer </th>
-      <td mat-cell *matCellDef="let element"> {{element.manufacturer}} </td>
-    </ng-container>
+        <ng-container matColumnDef="manufacturer">
+          <th mat-header-cell *matHeaderCellDef> Manufacturer </th>
+          <td mat-cell *matCellDef="let element"> {{element.manufacturer}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="nationality">
-      <th mat-header-cell *matHeaderCellDef> Nationality </th>
-      <td mat-cell *matCellDef="let element"> {{element.nationality}} </td>
-    </ng-container>
+        <ng-container matColumnDef="nationality">
+          <th mat-header-cell *matHeaderCellDef> Nationality </th>
+          <td mat-cell *matCellDef="let element"> {{element.nationality}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="payload_id">
-      <th mat-header-cell *matHeaderCellDef> Payload_id </th>
-      <td mat-cell *matCellDef="let element"> {{element.payload_id}} </td>
-    </ng-container>
+        <ng-container matColumnDef="payload_id">
+          <th mat-header-cell *matHeaderCellDef> Payload_id </th>
+          <td mat-cell *matCellDef="let element"> {{element.payload_id}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="payload_mass_kg">
-      <th mat-header-cell *matHeaderCellDef> payload_mass_kg </th>
-      <td mat-cell *matCellDef="let element"> {{element.payload_mass_kg}} </td>
-    </ng-container>
+        <ng-container matColumnDef="payload_mass_kg">
+          <th mat-header-cell *matHeaderCellDef> payload_mass_kg </th>
+          <td mat-cell *matCellDef="let element"> {{element.payload_mass_kg}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="payload_mass_lbs">
-      <th mat-header-cell *matHeaderCellDef> payload_mass_lbs </th>
-      <td mat-cell *matCellDef="let element"> {{element.payload_mass_lbs}} </td>
-    </ng-container>
+        <ng-container matColumnDef="payload_mass_lbs">
+          <th mat-header-cell *matHeaderCellDef> payload_mass_lbs </th>
+          <td mat-cell *matCellDef="let element"> {{element.payload_mass_lbs}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="payload_type">
-      <th mat-header-cell *matHeaderCellDef> payload_type </th>
-      <td mat-cell *matCellDef="let element"> {{element.payload_type}} </td>
-    </ng-container>
+        <ng-container matColumnDef="payload_type">
+          <th mat-header-cell *matHeaderCellDef> payload_type </th>
+          <td mat-cell *matCellDef="let element"> {{element.payload_type}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="orbit">
-      <th mat-header-cell *matHeaderCellDef> orbit </th>
-      <td mat-cell *matCellDef="let element"> {{element.orbit}} </td>
-    </ng-container>
+        <ng-container matColumnDef="orbit">
+          <th mat-header-cell *matHeaderCellDef> orbit </th>
+          <td mat-cell *matCellDef="let element"> {{element.orbit}} </td>
+        </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-  </table>
-  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
-</div>
-     </mat-tab>
+      </table>
+      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+    </div>
+  </mat-tab>
   <mat-tab label="Second">
-     <div class="data-container">
-    <table  mat-table [dataSource]="historyData" class="mat-elevation-z8">
-  
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="details">
-        <th mat-header-cell *matHeaderCellDef> details </th>
-        <td mat-cell *matCellDef="let element"> {{element.details}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef> title </th>
-        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="event_date_unix">
-        <th mat-header-cell *matHeaderCellDef> event_date_unix </th>
-        <td mat-cell *matCellDef="let element"> {{element.event_date_unix}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="event_date_utc">
-        <th mat-header-cell *matHeaderCellDef> event_date_utc </th>
-        <td mat-cell *matCellDef="let element"> {{element.event_date_utc}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="flight_number">
-        <th mat-header-cell *matHeaderCellDef> flight_number </th>
-        <td mat-cell *matCellDef="let element"> {{element.flight_number}} </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
-      
-  
-    </table>
-    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  
-  </div> </mat-tab>
+    <div class="data-container">
+      <table mat-table [dataSource]="historyData" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef> details </th>
+          <td mat-cell *matCellDef="let element"> {{element.details}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="event_date_unix">
+          <th mat-header-cell *matHeaderCellDef> event_date_unix </th>
+          <td mat-cell *matCellDef="let element"> {{element.event_date_unix}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="event_date_utc">
+          <th mat-header-cell *matHeaderCellDef> event_date_utc </th>
+          <td mat-cell *matCellDef="let element"> {{element.event_date_utc}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="flight_number">
+          <th mat-header-cell *matHeaderCellDef> flight_number </th>
+          <td mat-cell *matCellDef="let element"> {{element.flight_number}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+
+
+      </table>
+      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+    </div>
+  </mat-tab>
 </mat-tab-group>
